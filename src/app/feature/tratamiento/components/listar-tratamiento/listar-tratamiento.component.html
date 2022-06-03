@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="card border-light text-center mt-5">
+    <div class="card-body">
+      <h5 class="card-title mt-3 mb-5"> TRATAMIENTOS </h5>
+      <div class="table-responsive">
+        <table class="table align-middle table-striped">
+          <caption>Listado de tratamientos registrados en el sistema</caption>
+          <thead>
+            <tr>
+              <th *ngFor="let columna of columnas" scope="col"> {{ columna }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tratamiento of tratamientos; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ tratamiento.codigoTratamiento }}</td>
+              <td>{{ tratamiento.fechaInicio }}</td>
+              <td>{{ tratamiento.fechaFin }}</td>
+              <td>{{ tratamiento.nombreTipoTratamiento }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

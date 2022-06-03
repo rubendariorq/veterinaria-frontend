@@ -38,6 +38,9 @@
       ],
       "@mascota/*": [
         "src/app/feature/mascota/*"
+      ],
+      "@tratamiento/*": [
+        "src/app/feature/tratamiento/*"
       ]
     }
   },

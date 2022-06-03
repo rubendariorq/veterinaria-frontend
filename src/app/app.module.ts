@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from '@home/home.component';
 import { ProductoModule } from '@producto/producto.module';
 import { MascotaModule } from '@mascota/mascota.module';
+import { TratamientoModule } from '@tratamiento/tratamiento.module'
 
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
@@ -21,6 +22,7 @@ import { CookieService } from 'ngx-cookie-service';
     AppRoutingModule,
     ProductoModule,
     MascotaModule,
+    TratamientoModule,
     CoreModule
   ],
   providers: [CookieService],
