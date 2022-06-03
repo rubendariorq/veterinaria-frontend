@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="card border-light text-center my-5">
+    <div class="card-body">
+      <h5 class="card-title"> MASCOTAS </h5>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table align-middle table-striped">
+      <thead>
+        <tr>
+          <th *ngFor="let columna of columnas" scope="col"> {{ columna }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mascota of mascotas">
+          <th scope="row">{{ mascota.id }}</th>
+          <td>{{ mascota.codigoMascota }}</td>
+          <td>{{ mascota.nombre }}</td>
+          <td>{{ mascota.especie }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

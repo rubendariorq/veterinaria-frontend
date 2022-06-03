@@ -35,6 +35,9 @@
       ],
       "@shared/*": [
         "src/app/shared/*"
+      ],
+      "@mascota/*": [
+        "src/app/feature/mascota/*"
       ]
     }
   },
