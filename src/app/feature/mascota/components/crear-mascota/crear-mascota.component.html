@@ -1,0 +1,36 @@
+<div class="container-sm">
+  <div class="card border-light  mt-5">
+    <div class="card-body">
+      <h5 class="card-title mt-3 mb-5 text-center"> REGISTRAR MASCOTA </h5>
+      <form [formGroup]="mascotaForm" (ngSubmit)="registrar()">
+        <div class="row">
+          <div class="col-sm-6 mb-3 form-floating">
+            <input validar formControlName="codigoMascota" type="text" id="codigoMascota" placeholder="Código de la mascota"
+              [class]="(mascotaForm.controls.codigoMascota.valid ? 'form-control is-valid' : 'form-control is-invalid')">
+            <label for="codigoMascota" class="responsive">Código mascota</label>
+          </div>
+          <div class="col-sm-6 mb-3 form-floating">
+            <input validar formControlName="nombre" type="text" id="nombre" placeholder="Nombre"
+            [class]="(mascotaForm.controls.nombre.valid ? 'form-control is-valid' : 'form-control is-invalid')">
+            <label for="nombre" class="responsive">Nombre</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mb-3 form-floating">
+            <select validar formControlName="tipoMascota"
+            [class]="(mascotaForm.controls.tipoMascota.valid ? 'form-control is-valid' : 'form-control is-invalid')">
+              <option value="1">Gato</option>
+              <option value="2">Perro</option>
+            </select>
+            <label for="Tipo mascota" >Tipo de mascota</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mt-2 d-grid gap-2 d-md-flex justify-content-md-center">
+            <button type="submit" class="btn btn-success" *ngIf="mascotaForm.valid"> Registrar mascota </button>
+          </div>
+        </div>
+      </form>
+      </div>
+  </div>
+</div>

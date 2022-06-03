@@ -13,4 +13,8 @@ export class MascotaService {
   public consultar() {
     return this.http.doGet<Mascota[]>(`${environment.endpoint}/mascota`, this.http.optsName('consultar mascotas'));
   }
+
+  public guardar(mascota: Mascota) {
+    return this.http.doPost<Mascota, boolean>(`${environment.endpoint}/mascota`, mascota, this.http.optsName('crear mascota'));
+  }
 }
