@@ -2,6 +2,9 @@
   <div class="card border-light text-center mt-5">
     <div class="card-body">
       <h5 class="card-title mt-3 mb-5"> TRATAMIENTOS </h5>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="button" [routerLink]="['/tratamiento/crear']" id="linkCrearTratamiento" class="btn btn-success mb-2"> Registrar tratamiento </button>
+      </div>
       <div class="table-responsive">
         <table class="table align-middle table-striped">
           <caption>Listado de tratamientos registrados en el sistema</caption>

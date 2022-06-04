@@ -1,1 +1,66 @@
-<p>crear-tratamiento works!</p>
+<div class="container-sm">
+  <div class="card border-light  mt-5">
+    <div class="card-body">
+      <h5 class="card-title mt-3 mb-5 text-center"> REGISTRAR TRATAMIENTO </h5>
+      <form [formGroup]="tratamientoForm" (ngSubmit)="registrar()">
+        <div class="row">
+          <div class="col-sm-6 mb-3 form-floating">
+            <input validar formControlName="codigoTratamiento" type="text" id="codigoTratamiento" placeholder="Código de la mascota"
+              [class]="(tratamientoForm.controls.codigoTratamiento.valid ? 'form-control is-valid' : 'form-control is-invalid')">
+            <label for="codigoTratamiento" class="responsive">Código tratamiento</label>
+          </div>
+          <div class="col-sm-6 mb-3 form-floating">
+            <select validar formControlName="idMascota"
+            [class]="(tratamientoForm.controls.idMascota.valid ? 'form-control is-valid' : 'form-control is-invalid')">
+              <option *ngFor="let mascota of listaMascotas" [value]="mascota.id"> {{mascota.codigoMascota}} - {{mascota.nombre}} </option>
+            </select>
+            <label for="Mascota" >Mascota</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mb-3 form-floating">
+            <input validar formControlName="fechaInicio" type="date" id="fechaInicio"
+              [class]="(tratamientoForm.controls.fechaInicio.valid ? 'form-control is-valid' : 'form-control is-invalid')">
+            <label for="fechaInicio" class="responsive">Fecha de Inicio</label>
+          </div>
+          <div class="col-sm-6 mb-3 form-floating">
+            <input validar formControlName="fechaFin" type="date" id="fechaFin"
+              [class]="(tratamientoForm.controls.fechaFin.valid ? 'form-control is-valid' : 'form-control is-invalid')">
+            <label for="fechaFin" class="responsive">Fecha de Finalización</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mb-3 form-floating">
+            <select validar formControlName="idServicio"
+            [class]="(tratamientoForm.controls.idServicio.valid ? 'form-control is-valid' : 'form-control is-invalid')">
+              <option *ngFor="let servicio of listaServicios" [value]="servicio.id"> {{servicio.descripcion}} </option>
+            </select>
+            <label for="Servicio" >Servicio</label>
+          </div>
+          <div class="col-sm-6 mb-3 form-floating">
+            <select validar formControlName="tipoTratamiento"
+            [class]="(tratamientoForm.controls.tipoTratamiento.valid ? 'form-control is-valid' : 'form-control is-invalid')">
+              <option value="1">Estético</option>
+              <option value="2">Médico</option>
+            </select>
+            <label for="tipoTratamiento" >Tipo de tratamiento</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mb-3 form-floating">
+            <select validar formControlName="idCupon"
+            [class]="(tratamientoForm.controls.idCupon.valid ? 'form-control is-valid' : 'form-control is-invalid')">
+            <option *ngFor="let cupon of listaCupones" [value]="cupon.id"> {{cupon.codigoCupon}} </option>
+            </select>
+            <label for="cupon" >Cupón</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mt-2 d-grid gap-2 d-md-flex justify-content-md-center">
+            <button type="submit" class="btn btn-success" *ngIf="tratamientoForm.valid"> Registrar tratamiento </button>
+          </div>
+        </div>
+      </form>
+      </div>
+  </div>
+</div>
