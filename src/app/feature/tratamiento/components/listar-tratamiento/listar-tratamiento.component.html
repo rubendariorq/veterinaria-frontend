@@ -20,6 +20,20 @@
               <td>{{ tratamiento.fechaInicio }}</td>
               <td>{{ tratamiento.fechaFin }}</td>
               <td>{{ tratamiento.nombreTipoTratamiento }}</td>
+              <td>
+                <button class="btn btn-secondary" type="button" [id]="'btnEliminarTratamiento' + i" (click)="consultar(content, tratamiento)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                  </svg>
+                </button>
+                <button class="btn btn-danger" type="button" [id]="'btnEliminarTratamiento' + i" (click)="eliminar(tratamiento)"
+                  data-toggle="modal" data-target="#exampleModalCenter">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                  </svg>
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -27,3 +41,53 @@
     </div>
   </div>
 </div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Tratamiento</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="row">
+        <div class="col-sm-6 mb-3 form-floating">
+          <input [value]="tratamiento.codigoTratamiento" type="text" id="codigoTratamiento" placeholder="Código de la mascota" class="form-control">
+          <label for="codigoTratamiento" class="responsive">Código tratamiento</label>
+        </div>
+        <div class="col-sm-6 mb-3 form-floating">
+          <select [value]="tratamiento.idMascota" class="form-control">
+            <option *ngFor="let mascota of listaMascotas" [value]="mascota.id"> {{mascota.codigoMascota}} - {{mascota.nombre}} </option>
+          </select>
+          <label for="Mascota" >Mascota</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 mb-3 form-floating">
+          <input [value]="tratamiento.fechaInicio" type="date" id="fechaInicio" class="form-control">
+          <label for="fechaInicio" class="responsive">Fecha de Inicio</label>
+        </div>
+        <div class="col-sm-6 mb-3 form-floating">
+          <input [value]="tratamiento.fechaFin" type="date" id="fechaFin" class="form-control">
+          <label for="fechaFin" class="responsive">Fecha de Finalización</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 mb-3 form-floating">
+          <select [value]="tratamiento.idServicio" class="form-control">
+            <option *ngFor="let servicio of listaServicios" [value]="servicio.id"> {{servicio.descripcion}} </option>
+          </select>
+          <label for="Servicio" >Servicio</label>
+        </div>
+        <div class="col-sm-6 mb-3 form-floating">
+          <select [value]="tratamiento.tipoTratamiento" class="form-control">
+            <option value="1">Estético</option>
+            <option value="2">Médico</option>
+          </select>
+          <label for="tipoTratamiento" >Tipo de tratamiento</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

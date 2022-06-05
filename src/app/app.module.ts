@@ -10,6 +10,7 @@ import { TratamientoModule } from '@tratamiento/tratamiento.module'
 
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CookieService } from 'ngx-cookie-service';
     ProductoModule,
     MascotaModule,
     TratamientoModule,
-    CoreModule
+    CoreModule,
+    NgbModule
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],

@@ -32,4 +32,12 @@ export class TratamientoService {
   public listarMascotas() {
     return this.http.doGet<Mascota[]>(`${environment.endpoint}/mascota`, this.http.optsName('consultar mascotas'));
   }
+
+  public eliminar(tratamiento: Tratamiento) {
+    return this.http.doDelete<any>(`${environment.endpoint}/tratamiento/${tratamiento.id}`, this.http.optsName('eliminar tratamiento'))
+  }
+
+  public consultarTratamiento(tratamiento: Tratamiento) {
+    return this.http.doGet<Tratamiento>(`${environment.endpoint}/tratamiento/${tratamiento.id}`, this.http.optsName('consultar tratamiento'));
+  }
 }

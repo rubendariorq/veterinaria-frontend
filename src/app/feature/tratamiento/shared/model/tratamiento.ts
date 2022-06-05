@@ -1,4 +1,5 @@
 export class Tratamiento {
+  id: Number;
   codigoTratamiento: String;
   idMascota: Number;
   fechaInicio: String;
@@ -8,8 +9,9 @@ export class Tratamiento {
   idCupon: Number;
   nombreTipoTratamiento: String;
 
-  constructor(codigoTratamiento: String, idMascota: Number, fechaInicio: String, fechaFin: String, idServicio: Number, tipoTratamiento: Number, idCupon: Number,
+  constructor(id: Number, codigoTratamiento: String, idMascota: Number, fechaInicio: String, fechaFin: String, idServicio: Number, tipoTratamiento: Number, idCupon: Number,
     nombreTipoTratamiento: String) {
+    this.id = id;
     this.codigoTratamiento = codigoTratamiento;
     this.idMascota = idMascota;
     this.fechaInicio = fechaInicio;
