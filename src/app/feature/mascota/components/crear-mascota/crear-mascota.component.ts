@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { MascotaService } from '@mascota/shared/service/mascota.service';
 
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 8;
@@ -14,7 +13,7 @@ export class CrearMascotaComponent implements OnInit {
 
   public mascotaForm: FormGroup;
 
-  constructor(protected mascotaService: MascotaService, private router: Router) { }
+  constructor(protected mascotaService: MascotaService) { }
 
   ngOnInit() {
     this.construirFormularioMascota()
@@ -31,7 +30,6 @@ export class CrearMascotaComponent implements OnInit {
   public registrar() {
     this.mascotaService.guardar(this.mascotaForm.value).subscribe(() => {
       this.mascotaForm.reset();
-      this.router.navigate(['mascota/listar'])
     });
   }
 

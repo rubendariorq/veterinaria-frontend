@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Mascota } from '@mascota/shared/model/mascota';
 import { TratamientoService } from '@tratamiento/shared/service/tratamiento.service';
 import { Cupon } from 'src/app/feature/cupon/shared/model/cupon';
@@ -20,8 +19,7 @@ export class CrearTratamientoComponent implements OnInit {
   public listaServicios: Servicio[];
   public listaCupones: Cupon[];
 
-  constructor(protected tratamientoService: TratamientoService, private router: Router
-    ) { }
+  constructor(protected tratamientoService: TratamientoService) { }
 
   ngOnInit() {
     this.listarMascotas();
@@ -48,7 +46,6 @@ export class CrearTratamientoComponent implements OnInit {
   public registrar() {
     this.tratamientoService.guardar(this.tratamientoForm.value).subscribe(() => {
       this.tratamientoForm.reset();
-      this.router.navigate(['tratamiento/listar'])
     });
   }
 
