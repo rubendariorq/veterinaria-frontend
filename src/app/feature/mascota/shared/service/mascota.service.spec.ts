@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { HttpService } from '@core/services/http.service';
@@ -38,5 +39,15 @@ describe('MascotaService', () => {
     const req = httpMock.expectOne(apiEndpointMascotas);
     expect(req.request.method).toBe('GET');
     req.flush(dummyMascotas);
+  });
+
+  it('deberia crear una mascota', () => {
+    const dummyMascota = new Mascota(1, 'MASC001', 'Manotas', 1, null);
+    service.guardar(dummyMascota).subscribe(respuesta => {
+      expect(respuesta).toEqual(true);
+    });
+    const req = httpMock.expectOne(apiEndpointMascotas);
+    expect(req.request.method).toBe('POST');
+    req.event(new HttpResponse<boolean>({body: true}));
   });
 });

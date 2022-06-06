@@ -21,7 +21,7 @@
               <td>{{ tratamiento.fechaFin }}</td>
               <td>{{ tratamiento.nombreTipoTratamiento }}</td>
               <td>
-                <button class="btn btn-secondary" type="button" [id]="'btnEliminarTratamiento' + i" (click)="consultar(content, tratamiento)">
+                <button class="btn btn-secondary" type="button" [id]="'btnEliminarTratamiento' + i" (click)="abrirModal(content, tratamiento)">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
@@ -47,10 +47,10 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
-    <form>
+    <form [formGroup]="tratamientoForm">
       <div class="row">
         <div class="col-sm-6 mb-3 form-floating">
-          <input [value]="tratamiento.codigoTratamiento" type="text" id="codigoTratamiento" placeholder="Código de la mascota" class="form-control">
+          <input validar formControlName="codigoTratamiento" type="text" id="codigoTratamiento" placeholder="Código de la mascota" class="form-control">
           <label for="codigoTratamiento" class="responsive">Código tratamiento</label>
         </div>
         <div class="col-sm-6 mb-3 form-floating">

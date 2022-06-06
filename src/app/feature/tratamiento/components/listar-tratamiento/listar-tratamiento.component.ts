@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Mascota } from '@mascota/shared/model/mascota';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Tratamiento } from '@tratamiento/shared/model/tratamiento';
@@ -19,11 +20,18 @@ export class ListarTratamientoComponent implements OnInit {
   public listaMascotas: Mascota[];
   public listaServicios: Servicio[];
   public listaCupones: Cupon[];
+  public tratamientoForm: FormGroup;
 
   constructor(protected tratamientoService: TratamientoService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.listarTratamientos();
+  }
+
+  private construirFormularioTratamiento() {
+    this.tratamientoForm = new FormGroup({
+      codigoTratamiento: new FormControl(this.tratamiento.codigoTratamiento, [Validators.required])
+    })
   }
 
   private listarTratamientos() {
@@ -45,14 +53,17 @@ export class ListarTratamientoComponent implements OnInit {
     })    
   }
 
-  public consultar(longContent, tratamiento) {
+  public abrirModal(longContent, tratamiento) {
+    this.consultaTratamiento(tratamiento);
+    this.modalService.open(longContent, { scrollable: true });
+  }
+
+  public consultaTratamiento(tratamiento: Tratamiento) {
     this.tratamientoService.consultarTratamiento(tratamiento).subscribe(respuesta => {
       this.tratamiento = respuesta;
-
+      this.construirFormularioTratamiento();
       this.listarMascotas();
       this.listarServicios();
-
-      this.modalService.open(longContent, { scrollable: true });
     });
   }
 
