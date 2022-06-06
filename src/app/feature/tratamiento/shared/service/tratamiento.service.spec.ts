@@ -56,7 +56,7 @@ describe('TratamientoService', () => {
     service.eliminar(dummyTratamiento).subscribe(respuesta => {
       expect(respuesta).toEqual(null);
     });
-    const req = httpMock.expectOne(`${apiEndpointTratamientos}/1`);
+    const req = httpMock.expectOne(`${apiEndpointTratamientos}/${dummyTratamiento.id}`);
     expect(req.request.method).toBe('DELETE');
     req.event(new HttpResponse<any>());
   });
@@ -66,7 +66,7 @@ describe('TratamientoService', () => {
     service.consultarTratamiento(dummyTratamiento).subscribe(respuesta => {
       expect(respuesta).toEqual(dummyTratamiento);
     });
-    const req = httpMock.expectOne(`${apiEndpointTratamientos}/1`);
+    const req = httpMock.expectOne(`${apiEndpointTratamientos}/${dummyTratamiento.id}`);
     expect(req.request.method).toBe('GET');
     req.event(new HttpResponse<Tratamiento>({body: dummyTratamiento}));
   });
