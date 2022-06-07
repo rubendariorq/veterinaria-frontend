@@ -35,7 +35,7 @@ export class CrearTratamientoComponent implements OnInit {
       fechaFin: new FormControl('', [Validators.required]),
       idServicio: new FormControl('', [Validators.required]),
       tipoTratamiento: new FormControl('', [Validators.required]),
-      idCupon: new FormControl('', [Validators.required])
+      idCupon: new FormControl('', [])
     })
 
     this.tratamientoForm.get("idMascota").valueChanges.subscribe(idMascota => {

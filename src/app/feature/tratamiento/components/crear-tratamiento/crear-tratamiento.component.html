@@ -2,7 +2,7 @@
   <div class="card border-light  mt-5">
     <div class="card-body">
       <h5 class="card-title mt-3 mb-5 text-center"> REGISTRAR TRATAMIENTO </h5>
-      <form [formGroup]="tratamientoForm" (ngSubmit)="registrar()">
+      <form [formGroup]="tratamientoForm" (ngSubmit)="registrar()" id="formRegistrarTratamiento">
         <div class="row">
           <div class="col-sm-6 mb-3 form-floating">
             <input validar formControlName="codigoTratamiento" type="text" id="codigoTratamiento" placeholder="Código de la mascota"
@@ -10,7 +10,7 @@
             <label for="codigoTratamiento" class="responsive">Código tratamiento</label>
           </div>
           <div class="col-sm-6 mb-3 form-floating">
-            <select validar formControlName="idMascota"
+            <select validar formControlName="idMascota" id="idMascota"
             [class]="(tratamientoForm.controls.idMascota.valid ? 'form-control is-valid' : 'form-control is-invalid')">
               <option *ngFor="let mascota of listaMascotas" [value]="mascota.id"> {{mascota.codigoMascota}} - {{mascota.nombre}} </option>
             </select>
@@ -31,14 +31,14 @@
         </div>
         <div class="row">
           <div class="col-sm-6 mb-3 form-floating">
-            <select validar formControlName="idServicio"
+            <select validar formControlName="idServicio" id="idServicio"
             [class]="(tratamientoForm.controls.idServicio.valid ? 'form-control is-valid' : 'form-control is-invalid')">
               <option *ngFor="let servicio of listaServicios" [value]="servicio.id"> {{servicio.descripcion}} </option>
             </select>
             <label for="Servicio" >Servicio</label>
           </div>
           <div class="col-sm-6 mb-3 form-floating">
-            <select validar formControlName="tipoTratamiento"
+            <select validar formControlName="tipoTratamiento" id="tipoTratamiento"
             [class]="(tratamientoForm.controls.tipoTratamiento.valid ? 'form-control is-valid' : 'form-control is-invalid')">
               <option value="1">Estético</option>
               <option value="2">Médico</option>
@@ -48,7 +48,7 @@
         </div>
         <div class="row">
           <div class="col-sm-6 mb-3 form-floating">
-            <select validar formControlName="idCupon"
+            <select formControlName="idCupon" id="idCupon"
             [class]="(tratamientoForm.controls.idCupon.valid ? 'form-control is-valid' : 'form-control is-invalid')">
             <option *ngFor="let cupon of listaCupones" [value]="cupon.id"> {{cupon.codigoCupon}} </option>
             </select>
@@ -57,7 +57,8 @@
         </div>
         <div class="row">
           <div class="mt-2 d-grid gap-2 d-md-flex justify-content-md-center">
-            <button type="submit" class="btn btn-success" *ngIf="tratamientoForm.valid"> Registrar tratamiento </button>
+            <button type="buton" class="btn btn-danger" [routerLink]="['/tratamiento/listar']" id="botonVolver"> Volver </button>
+            <button type="submit" class="btn btn-success" *ngIf="tratamientoForm.valid" id="botonRegistrarTratamiento"> Registrar tratamiento </button>
           </div>
         </div>
       </form>

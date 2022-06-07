@@ -39,4 +39,11 @@ describe('workspace-project Mascota', () => {
     expect(listarMascota.contarMascotas()).toBeGreaterThanOrEqual(1);
   });
 
+  it('Deberia listar mascotas', () => {
+    page.navigateTo();
+    navBar.clickBotonMascotas();
+    listarMascota.clickBotonListarMascota();
+    expect(listarMascota.contarMascotas()).toBeGreaterThanOrEqual(1);
+});
+
 });
