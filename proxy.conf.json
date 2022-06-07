@@ -1,7 +1,8 @@
 {
   "/tratamiento": {
-    "target": "http://localhost:8083",
-    "logLevel": "debug"
+    "target": "https://localhost:8083",
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 
 }
