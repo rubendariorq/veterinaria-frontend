@@ -20,7 +20,7 @@ describe('workspace-project Mascota', () => {
   it('deberia registrar mascota correctamente', () => {
     const CODIGO_MASCOTA = "MASC010";
     const NOMBRE = "Manotas";
-    const TIPO_MASCOTA = "1";
+    const TIPO_MASCOTA = "Gato";
 
     page.navigateTo();
     navBar.clickBotonMascotas();
@@ -36,7 +36,7 @@ describe('workspace-project Mascota', () => {
     browser.sleep(1000);
     crearMascota.clickBotonVolver();
     browser.sleep(1000);
-    expect(1).toBe(listarMascota.contarMascotas());
+    expect(listarMascota.contarMascotas()).toBeGreaterThanOrEqual(5);
   });
 
 });
