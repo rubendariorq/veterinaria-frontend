@@ -2,7 +2,7 @@
   <div class="card border-light  mt-5">
     <div class="card-body">
       <h5 class="card-title mt-3 mb-5 text-center"> REGISTRAR MASCOTA </h5>
-      <form [formGroup]="mascotaForm" (ngSubmit)="registrar()">
+      <form [formGroup]="mascotaForm" (ngSubmit)="registrar()" id="formRegistrarMascota">
         <div class="row">
           <div class="col-sm-6 mb-3 form-floating">
             <input validar formControlName="codigoMascota" type="text" id="codigoMascota" placeholder="Código de la mascota"
@@ -17,7 +17,7 @@
         </div>
         <div class="row">
           <div class="mb-3 form-floating">
-            <select validar formControlName="tipoMascota"
+            <select validar formControlName="tipoMascota" id="tipoMascota"
             [class]="(mascotaForm.controls.tipoMascota.valid ? 'form-control is-valid' : 'form-control is-invalid')">
               <option value="1">Gato</option>
               <option value="2">Perro</option>
@@ -27,7 +27,8 @@
         </div>
         <div class="row">
           <div class="mt-2 d-grid gap-2 d-md-flex justify-content-md-center">
-            <button type="submit" class="btn btn-success" *ngIf="mascotaForm.valid"> Registrar mascota </button>
+            <button type="buton" class="btn btn-danger" [routerLink]="['/mascota/listar']" id="btnVolver"> Volver </button>
+            <button type="submit" class="btn btn-success" *ngIf="mascotaForm.valid" id="btnRegistrarMascota"> Registrar mascota </button>
           </div>
         </div>
       </form>
