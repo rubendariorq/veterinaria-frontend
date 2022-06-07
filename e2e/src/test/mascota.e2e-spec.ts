@@ -36,7 +36,7 @@ describe('workspace-project Mascota', () => {
     browser.sleep(1000);
     crearMascota.clickBotonVolver();
     browser.sleep(1000);
-    expect(listarMascota.contarMascotas()).toBeGreaterThanOrEqual(5);
+    expect(listarMascota.contarMascotas()).toBeGreaterThanOrEqual(1);
   });
 
 });

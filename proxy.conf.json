@@ -1,6 +1,6 @@
 {
   "/tratamiento": {
-    "target": "http://localhost:8083",
+    "target": "http://localhost:60250",
     "logLevel": "debug"
   }
 
